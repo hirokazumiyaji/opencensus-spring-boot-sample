@@ -1,0 +1,38 @@
+plugins {
+    id "org.springframework.boot" version "2.1.5.RELEASE"
+    id "java"
+}
+
+apply plugin: "io.spring.dependency-management"
+
+group = "com.github.hirokazumiyaji"
+version = "1.0.0"
+sourceCompatibility = "11"
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "io.opencensus:opencensus-api:0.22.1"
+    implementation "io.opencensus:opencensus-contrib-http-util:0.22.1"
+    implementation "io.opencensus:opencensus-exporter-trace-jaeger:0.22.1"
+    implementation "com.squareup.okhttp3:okhttp:3.14.2"
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+    implementation "com.squareup.retrofit2:converter-jackson:2.5.0"
+    implementation "com.squareup.retrofit2:adapter-java8:2.5.0"
+    compileOnly "org.projectlombok:lombok"
+    runtimeOnly "org.springframework.boot:spring-boot-devtools"
+    runtimeOnly "io.opencensus:opencensus-impl:0.22.1"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor "org.projectlombok:lombok"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
